@@ -29,6 +29,8 @@ import com.example.cupcake.model.OrderViewModel
  * [SummaryFragment] contains a summary of the order details with a button to share the order
  * via another app.
  */
+
+
 class SummaryFragment : Fragment() {
     private val sharedViewModel : OrderViewModel by activityViewModels()
 
@@ -50,9 +52,11 @@ class SummaryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            viewModel = sharedViewModel
+            lifecycleOwner = viewLifecycleOwner
 
-            sendButton.setOnClickListener { sendOrder() }
+            viewModel = sharedViewModel
+            summaryFragment = this@SummaryFragment
+
         }
     }
 
