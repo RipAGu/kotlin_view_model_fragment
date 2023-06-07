@@ -52,6 +52,8 @@ class StartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            viewModel = sharedViewModel
+
             // Set up the button click listeners
             orderOneCupcake.setOnClickListener { orderCupcake(1) }
             orderSixCupcakes.setOnClickListener { orderCupcake(6) }
